@@ -6,6 +6,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
+import Sidebar from "./components/shared/Sidebar";
 
 import styles from "./tailwind.css?url";
 
@@ -42,5 +43,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <div className="flex min-h-screen">
+      <Sidebar />
+      <main className="flex-1">
+        <Outlet />
+      </main>
+    </div>
+  );
 }
